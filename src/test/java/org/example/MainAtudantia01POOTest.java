@@ -91,16 +91,20 @@ public class MainAtudantia01POOTest {
     @Test
     void calcularPromedioTest(){
         //{0.25, 0.25, 0.25, 0.15, 0.10}
-        double[][] notasIngresadas =new double[3][5];
-        notasIngresadas[0]= new double[] {20,40,60,70,10};
-        notasIngresadas[1]= new double[]{40,45,53,30,18};
-        notasIngresadas[2]= new double[]{10,23,10,70,56};
-
+        double[][] notasIngresadas =crearMatrizNotas();
         double[] promediosEsperados={41.5,40.8,26.85};
         for (int i = 0; i <notasIngresadas.length ; i++) {
             double resultadoObtenido = calcularPromedio(notasIngresadas[i]);
             Assertions.assertEquals(promediosEsperados[i],resultadoObtenido);
         }
+    }
+
+    private double[][] crearMatrizNotas() {
+        double[][] notas = new double[3][5];
+        notas[0]= new double[] {20,40,60,70,10};
+        notas[1]= new double[]{40,45,53,30,18};
+        notas[2]= new double[]{10,23,10,70,56};
+        return notas;
     }
 
     @Test
